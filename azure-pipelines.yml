@@ -4,20 +4,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+  - main
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: AzureStaticWebApp@0
-  inputs:
-    app_location: "/" # App source code path
-    api_location: "" # Api source code path - optional
-    output_location: "docs"
-    
-  env:
-    azure_static_web_apps_api_token: $(deployment_token)
-
-
-
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: "/" # App source code path
+      api_location: "" # Api source code path - optional
+      output_location: "docs"
+    env:
+      azure_static_web_apps_api_token: $(deployment_token)
